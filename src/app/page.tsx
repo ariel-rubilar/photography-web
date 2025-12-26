@@ -1,4 +1,12 @@
-import Image from "next/image";
+import { PhotoGallery } from "@/features/photos/components/PhotoGallery";
+import { Photo } from "@/features/photos/domain/photo";
+
+const photos: Photo[] = Array.from({ length: 15 }).map((_, index) => ({
+  id: `${index + 1}`,
+  url: `/plaholders/${index + 1}.JPG`,
+  title: `Photo ${index + 1}`,
+  description: `This is photo number ${index + 1}`,
+}));
 
 const Home = () => {
   return (
@@ -10,21 +18,7 @@ const Home = () => {
       </header>
 
       <main className="py-12 px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Array.from({ length: 10 }).map((_, index) => (
-            <div
-              key={index}
-              className="relative w-full aspect-4/3 overflow-hidden rounded-lg"
-            >
-              <Image
-                src={`/plaholders/${index + 1}.JPG`}
-                alt="Vercel logomark"
-                fill
-                className="object-cover"
-              />
-            </div>
-          ))}
-        </div>
+        <PhotoGallery photos={photos} />
       </main>
     </div>
   );
