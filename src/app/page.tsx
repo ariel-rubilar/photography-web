@@ -1,14 +1,8 @@
 import { PhotoGallery } from "@/features/photos/components/PhotoGallery";
-import { Photo } from "@/features/photos/domain/photo";
+import { fetchPhotos } from "@/features/photos/services/fetchPhotos";
 
-const photos: Photo[] = Array.from({ length: 15 }).map((_, index) => ({
-  id: `${index + 1}`,
-  url: `/plaholders/${index + 1}.JPG`,
-  title: `Photo ${index + 1}`,
-  description: `This is photo number ${index + 1}`,
-}));
-
-const Home = () => {
+const Home = async () => {
+  const photos = await fetchPhotos();
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 left-0 right-0 border-b ">
