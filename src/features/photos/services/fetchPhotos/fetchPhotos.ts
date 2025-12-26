@@ -1,20 +1,16 @@
+import { CONFIG } from "@/lib/config";
 import { Photo } from "../../domain/photo";
 
-const photos: Photo[] = Array.from({ length: 15 }).map((_, index) => ({
-  id: `${index + 1}`,
-  url: `/plaholders/${index + 1}.JPG`,
-  title: `Photo ${index + 1}`,
-  description: `This is photo number ${index + 1}`,
-}));
-
 const fetchPhotos = async (): Promise<Photo[]> => {
-  const promise = new Promise<Photo[]>((resolve) => {
-    setTimeout(() => {
-      resolve(photos);
-    }, 500);
-  });
+  const promise = await fetch(`${CONFIG.APP.WEB_PHOTO_BASE_API_URI}/photos`);
 
-  return promise;
+  if (!promise.ok) {
+    throw new Error("Failed to fetch photos");
+  }
+
+  const data = await promise.json();
+
+  return data.data as Photo[];
 };
 
 export { fetchPhotos };
