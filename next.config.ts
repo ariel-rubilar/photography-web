@@ -3,9 +3,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
-  turbopack: {
-    root: __dirname,
-  },
   typescript: {
     tsconfigPath: "./tsconfig.app.json",
   },
