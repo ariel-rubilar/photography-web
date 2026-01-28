@@ -83,4 +83,13 @@ const generatePhoto = (overwrites: Partial<Photo> = {}): Photo => {
   return { ...defaults, ...overwrites };
 };
 
-export { generatePhoto, generatePhotoRecipeSettings, generatePhotoRecipe };
+const generatePhotoList = (count: number): Photo[] => {
+  return Array.from({ length: count }, () => generatePhoto());
+};
+
+export {
+  generatePhoto,
+  generatePhotoRecipeSettings,
+  generatePhotoRecipe,
+  generatePhotoList,
+};
