@@ -1,16 +1,20 @@
 import { defineConfig, globalIgnores } from "eslint/config";
+import vitest from "eslint-plugin-vitest";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
-
+  {
+    languageOptions: {
+      parserOptions: {
+        project: "./tsconfig.app.json",
+      },
+    },
+  },
   {
     files: ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"],
-    parserOptions: {
-      project: "./tsconfig.test.json",
-    },
     plugins: { vitest },
     rules: {
       ...vitest.configs.recommended.rules,
@@ -19,15 +23,12 @@ const eslintConfig = defineConfig([
       globals: {
         ...vitest.environments.env.globals,
       },
-    },
-  },
-  {
-    languageOptions: {
       parserOptions: {
-        project: "./tsconfig.json",
+        project: "./tsconfig.test.json",
       },
     },
   },
+
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
