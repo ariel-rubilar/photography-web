@@ -1,6 +1,8 @@
 import { PhotoGallery } from "@/features/photos/components/PhotoGallery";
 import { fetchPhotos } from "@/features/photos/services/fetchPhotos";
 
+export const dynamic = "force-dynamic";
+
 const Home = async () => {
   const photos = await fetchPhotos();
   return (
