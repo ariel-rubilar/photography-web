@@ -1,5 +1,5 @@
 import { CONFIG } from "@/lib/config";
-import { Photo } from "../../domain/photo";
+import { Photo } from "../../models/photo";
 
 const fetchPhotos = async (): Promise<Photo[]> => {
   const promise = await fetch(`${CONFIG.APP.WEB_PHOTO_BASE_API_URI}/photos`);

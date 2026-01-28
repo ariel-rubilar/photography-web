@@ -1,6 +1,6 @@
 "use client";
 
-import { Photo } from "@/features/photos/domain/photo";
+import { Photo } from "@/features/photos/models/photo";
 import Image from "next/image";
 import { useState } from "react";
 

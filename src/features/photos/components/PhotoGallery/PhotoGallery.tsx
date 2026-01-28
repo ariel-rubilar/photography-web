@@ -1,4 +1,4 @@
-import { Photo } from "../../domain/photo";
+import { Photo } from "../../models/photo";
 import { PhotoCard } from "../PhotoCard";
 
 const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
