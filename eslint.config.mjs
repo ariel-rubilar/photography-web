@@ -9,7 +9,7 @@ const eslintConfig = defineConfig([
   {
     languageOptions: {
       parserOptions: {
-        project: "./tsconfig.app.json",
+        project: "./tsconfig.json",
       },
     },
   },

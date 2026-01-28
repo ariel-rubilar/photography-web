@@ -9,5 +9,5 @@
       "name": "next",
     },
   ],
-  "include": ["**/*.ts", "**/*.tsx", "**/*.mts"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.mts", "*.mts", "*.ts"],
 }
