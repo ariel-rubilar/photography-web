@@ -14,7 +14,13 @@ const eslintConfig = defineConfig([
     },
   },
   {
-    files: ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"],
+    files: [
+      "src/test/**/*",
+      "**/*.test.ts",
+      "**/*.test.tsx",
+      "**/*.spec.ts",
+      "**/*.spec.tsx",
+    ],
     plugins: { vitest },
     rules: {
       ...vitest.configs.recommended.rules,
