@@ -2,7 +2,6 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "types": ["vitest/globals", "@testing-library/react"],
-    "jsx": "react-jsx",
   },
   "include": [
     "src/**/*.test.ts",

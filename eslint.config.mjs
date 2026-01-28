@@ -9,9 +9,17 @@ const eslintConfig = defineConfig([
   {
     languageOptions: {
       parserOptions: {
-        project: "./tsconfig.json",
+        project: "./tsconfig.app.json",
       },
     },
+    ignorePatterns: [
+      ".next/**",
+      "out/**",
+      "build/**",
+      "next-env.d.ts",
+      "*.config.mjs",
+      "postcss.config.mjs",
+    ],
   },
   {
     files: [
@@ -42,8 +50,6 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    "*.config.mjs",
-    "postcss.config.mjs",
   ]),
 ]);
 
