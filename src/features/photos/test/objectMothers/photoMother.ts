@@ -74,7 +74,7 @@ const generatePhotoRecipe = (
 const generatePhoto = (overwrites: Partial<Photo> = {}): Photo => {
   const defaults: Photo = {
     id: faker.database.mongodbObjectId(),
-    url: faker.image.urlLoremFlickr({ category: "nature" }),
+    url: faker.image.url(),
     title: faker.lorem.sentence(),
     recipe: generatePhotoRecipe(),
     description: generateValueOrUndefined(faker.lorem.paragraph()),
