@@ -9,7 +9,7 @@ const eslintConfig = defineConfig([
   {
     languageOptions: {
       parserOptions: {
-        project: "./tsconfig.app.json",
+        project: "./tsconfig.json",
       },
     },
   },
@@ -42,6 +42,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "*.config.mjs",
+    "postcss.config.mjs",
   ]),
 ]);
 
