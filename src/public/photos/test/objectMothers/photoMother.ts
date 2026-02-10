@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { Photo, PhotoRecipe, PhotoRecipeSettings } from "../../models/photo";
-import { generateValueOrUndefined } from "@/test/objectMothers";
+import { generateValueOrUndefined } from "@/shared/test/objectMothers";
 
 const generatePhotoRecipeSettings = (
   overwrites: Partial<PhotoRecipeSettings> = {},

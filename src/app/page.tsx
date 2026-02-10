@@ -1,5 +1,5 @@
-import { PhotoGallery } from "@/features/photos/components/PhotoGallery";
-import { fetchPhotos } from "@/features/photos/services/fetchPhotos";
+import { PhotoGallery } from "@/public/photos/components/PhotoGallery";
+import { fetchPhotos } from "@/public/photos/services/fetchPhotos";
 
 export const dynamic = "force-dynamic";
 

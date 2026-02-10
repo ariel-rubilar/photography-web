@@ -1,4 +1,4 @@
-import { CONFIG } from "@/lib/config";
+import { CONFIG } from "@/shared/lib/config";
 import { Photo } from "../../models/photo";
 
 const fetchPhotos = async (): Promise<Photo[]> => {

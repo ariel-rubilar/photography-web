@@ -1,4 +1,4 @@
-import { CONFIG } from "./src/lib/config";
+import { CONFIG } from "./src/shared/lib/config";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
