@@ -1,16 +1,13 @@
-import { CONFIG } from "@/shared/lib/config";
 import { Photo } from "../../models/photo";
+import { publicRequest } from "../../lib/api";
 
 const fetchPhotos = async (): Promise<Photo[]> => {
-  const promise = await fetch(`${CONFIG.APP.WEB_PHOTO_BASE_API_URI}/photos`);
+  const response = await publicRequest<Photo[]>({
+    url: "/v1/photos",
+    method: "GET",
+  });
 
-  if (!promise.ok) {
-    throw new Error("Failed to fetch photos");
-  }
-
-  const data = await promise.json();
-
-  return data.data as Photo[];
+  return response.data.data;
 };
 
 export { fetchPhotos };
