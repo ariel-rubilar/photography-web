@@ -1,10 +1,29 @@
+"use client";
+
 import { PhotoGallery } from "@/public/photos/components/PhotoGallery";
-import { fetchPhotos } from "@/public/photos/services/fetchPhotos";
+import { useListPhotos } from "@/public/photos/hooks/useListPhotos";
 
-export const dynamic = "force-dynamic";
+const Home = () => {
+  const { data: photos = [], isError, isFetching } = useListPhotos();
 
-const Home = async () => {
-  const photos = await fetchPhotos();
+  if (isError) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-red-500">
+          Failed to load photos. Please try again later.
+        </p>
+      </div>
+    );
+  }
+
+  if (isFetching) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-gray-500">Loading photos...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 left-0 right-0 border-b ">

@@ -1,4 +1,4 @@
-import { CONFIG } from "./src/shared/lib/config";
+import { SERVER_CONFIG } from "./src/shared/lib/config";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     tsconfigPath: "./tsconfig.app.json",
   },
   images: {
-    remotePatterns: [new URL(CONFIG.APP.PHOTO_BUCKET_URI)],
+    remotePatterns: [new URL(SERVER_CONFIG.PHOTO_BUCKET_URI)],
   },
 };
 
