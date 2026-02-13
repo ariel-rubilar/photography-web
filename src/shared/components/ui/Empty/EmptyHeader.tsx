@@ -1,6 +1,6 @@
 import { cn } from "@/shared/lib/cn";
 
-function EmptyHeader({ className, ...props }: React.ComponentProps<"div">) {
+const EmptyHeader = ({ className, ...props }: React.ComponentProps<"div">) => {
   return (
     <div
       data-slot="empty-header"
@@ -11,6 +11,6 @@ function EmptyHeader({ className, ...props }: React.ComponentProps<"div">) {
       {...props}
     />
   );
-}
+};
 
 export { EmptyHeader };

@@ -1,6 +1,9 @@
 import { cn } from "@/shared/lib/cn";
 
-function EmptyDescription({ className, ...props }: React.ComponentProps<"p">) {
+const EmptyDescription = ({
+  className,
+  ...props
+}: React.ComponentProps<"p">) => {
   return (
     <div
       data-slot="empty-description"
@@ -11,6 +14,6 @@ function EmptyDescription({ className, ...props }: React.ComponentProps<"p">) {
       {...props}
     />
   );
-}
+};
 
 export { EmptyDescription };

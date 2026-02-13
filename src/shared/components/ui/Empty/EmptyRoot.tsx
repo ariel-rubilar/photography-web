@@ -1,6 +1,6 @@
 import { cn } from "@/shared/lib/cn";
 
-function EmptyRoot({ className, ...props }: React.ComponentProps<"div">) {
+const EmptyRoot = ({ className, ...props }: React.ComponentProps<"div">) => {
   return (
     <div
       data-slot="empty"
@@ -11,6 +11,6 @@ function EmptyRoot({ className, ...props }: React.ComponentProps<"div">) {
       {...props}
     />
   );
-}
+};
 
 export { EmptyRoot };

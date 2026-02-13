@@ -2,11 +2,11 @@ import { cn } from "@/shared/lib/cn";
 import { VariantProps } from "class-variance-authority";
 import { emptyMediaVariants } from "./emptyMediaVariants";
 
-function EmptyMedia({
+const EmptyMedia = ({
   className,
   variant = "default",
   ...props
-}: React.ComponentProps<"div"> & VariantProps<typeof emptyMediaVariants>) {
+}: React.ComponentProps<"div"> & VariantProps<typeof emptyMediaVariants>) => {
   return (
     <div
       data-slot="empty-icon"
@@ -15,6 +15,6 @@ function EmptyMedia({
       {...props}
     />
   );
-}
+};
 
 export { EmptyMedia };

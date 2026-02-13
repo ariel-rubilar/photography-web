@@ -1,6 +1,6 @@
 import { cn } from "@/shared/lib/cn";
 
-function EmptyTitle({ className, ...props }: React.ComponentProps<"div">) {
+const EmptyTitle = ({ className, ...props }: React.ComponentProps<"div">) => {
   return (
     <div
       data-slot="empty-title"
@@ -8,6 +8,6 @@ function EmptyTitle({ className, ...props }: React.ComponentProps<"div">) {
       {...props}
     />
   );
-}
+};
 
 export { EmptyTitle };
