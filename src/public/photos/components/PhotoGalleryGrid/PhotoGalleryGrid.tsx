@@ -1,7 +1,7 @@
 import { Photo } from "../../models/photo";
 import { PhotoCard } from "../PhotoCard";
 
-const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
+const PhotoGalleryGrid = ({ photos }: { photos: Photo[] }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3   gap-6">
       {photos.map((photo) => (
@@ -11,4 +11,4 @@ const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
   );
 };
 
-export { PhotoGallery };
+export { PhotoGalleryGrid };

@@ -1,6 +1,6 @@
 "use client";
 
-import { PhotoGallery } from "@/public/photos/components/PhotoGallery";
+import { PhotoGalleryGrid } from "@/public/photos/components/PhotoGalleryGrid";
 import { useListPhotos } from "@/public/photos/hooks/useListPhotos";
 
 const Home = () => {
@@ -33,7 +33,7 @@ const Home = () => {
       </header>
 
       <main className="py-12 px-6">
-        <PhotoGallery photos={photos} />
+        <PhotoGalleryGrid photos={photos} />
       </main>
     </div>
   );
