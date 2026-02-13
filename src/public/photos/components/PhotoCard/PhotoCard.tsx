@@ -25,7 +25,8 @@ const PhotoCard = ({ photo }: { photo: Photo }) => {
         fill
         className={`object-cover transition-opacity duration-300 ${isLoaded ? "opacity-100" : "opacity-0"}`}
         onLoad={() => setIsLoaded(true)}
-        loading="lazy"
+        loading="eager"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
 
       <div
