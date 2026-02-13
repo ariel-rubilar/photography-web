@@ -6,7 +6,11 @@ const publicRequest = <T>({
   url,
   ...req
 }: HttpRequest): Promise<HttpResponse<SuccessResponse<T>>> => {
-  const fullUrl = `${CLIENT_CONFIG.WEB_PHOTO_BASE_API_URI}/web/${url}`;
+  console.log(
+    "Making public request to:",
+    CLIENT_CONFIG.WEB_PHOTO_BASE_API_URI,
+  );
+  const fullUrl = `${CLIENT_CONFIG.WEB_PHOTO_BASE_API_URI}${url}`;
 
   return request({
     url: fullUrl,

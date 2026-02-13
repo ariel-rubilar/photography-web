@@ -7,7 +7,7 @@ const fetchPhotos = async ({
   signal?: AbortSignal;
 }): Promise<Photo[]> => {
   const response = await publicRequest<Photo[]>({
-    url: "/v1/photos",
+    url: "/api/v1/web/photos",
     method: "GET",
     signal: signal,
   });
