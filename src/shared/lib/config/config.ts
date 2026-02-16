@@ -7,7 +7,7 @@ const serverConfigSchema = z.object({
 
 // Client-side config schema
 const clientConfigSchema = z.object({
-  WEB_PHOTO_BASE_API_URI: z.string().url(),
+  WEB_PHOTO_BASE_API_URI: z.url(),
 });
 
 let SERVER_CONFIG: z.infer<typeof serverConfigSchema>;
