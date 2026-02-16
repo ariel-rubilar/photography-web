@@ -8,6 +8,7 @@ import { SelectField } from "../SelectField";
 import { SliderField } from "../SliderField";
 import { Text } from "@/shared/components/ui/Text";
 import { Label } from "@/shared/components/ui/Label";
+import { InputGroup } from "@/shared/components/ui/InputGroup";
 
 const ExposureSection = () => {
   return (
@@ -40,19 +41,22 @@ const ExposureSection = () => {
               <Label className="text-sm text-muted-foreground">
                 Color Temperature
               </Label>
-              <div className="relative">
-                <Input
+              <InputGroup.Root className="max-w-xs">
+                <InputGroup.Input
+                  placeholder="e.g. 3500"
                   type="number"
                   min={2500}
                   max={10000}
                   step={100}
-                  placeholder="e.g. 3500"
-                  className="pr-8"
                 />
-                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 font-mono text-xs text-muted-foreground">
+
+                <InputGroup.Addon
+                  align="inline-end"
+                  className="font-mono text-xs"
+                >
                   K
-                </span>
-              </div>
+                </InputGroup.Addon>
+              </InputGroup.Root>
               <p className="text-xs text-muted-foreground">2500K - 10000K</p>
             </div>
           </div>
