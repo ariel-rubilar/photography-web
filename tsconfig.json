@@ -9,6 +9,14 @@
       "name": "next",
     },
   ],
-  "include": ["**/*.ts", "**/*.tsx", "**/*.mts", "*.mts", "*.ts"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mts",
+    "*.mts",
+    "*.ts",
+    "**/*.mjs",
+    "*.mjs",
+  ],
   "exclude": ["node_modules"],
 }
