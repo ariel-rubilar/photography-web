@@ -1,7 +1,8 @@
 import { Card } from "@/shared/components/ui/Card";
+import { Field } from "@/shared/components/ui/Field";
 import { Heading } from "@/shared/components/ui/Heading";
 import { Input } from "@/shared/components/ui/Input";
-import { Label } from "@/shared/components/ui/Label";
+import { InputGroup } from "@/shared/components/ui/InputGroup";
 import { Separator } from "@/shared/components/ui/Separator";
 import { Text } from "@/shared/components/ui/Text";
 import { Camera, Link2 } from "lucide-react";
@@ -23,35 +24,28 @@ const BasicInformationSection = () => {
         </div>
         <Separator />
         <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-2">
-            <Label
-              htmlFor="recipe-name"
-              className="text-sm text-muted-foreground"
-            >
+          <Field.Root>
+            <Field.Label htmlFor="recipe-name">
               Recipe Name <span className="text-primary">*</span>
-            </Label>
+            </Field.Label>
             <Input
               id="recipe-name"
               placeholder="e.g. Kodak Portra 400 Look"
               required
             />
-          </div>
-          <div className="flex flex-col gap-2">
-            <Label
-              htmlFor="recipe-link"
-              className="text-sm text-muted-foreground"
-            >
-              Reference Link
-            </Label>
-            <div className="relative">
-              <Link2 className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <Input
+          </Field.Root>
+          <Field.Root>
+            <Field.Label htmlFor="recipe-link">Reference Link</Field.Label>
+            <InputGroup.Root>
+              <InputGroup.Addon align="inline-start">
+                <Link2 />
+              </InputGroup.Addon>
+              <InputGroup.Input
                 id="recipe-link"
                 placeholder="https://fujixweekly.com/..."
-                className="pl-10"
               />
-            </div>
-          </div>
+            </InputGroup.Root>
+          </Field.Root>
         </div>
       </Card.Content>
     </Card.Root>

@@ -1,3 +1,4 @@
+import { Field } from "@/shared/components/ui/Field";
 import { Label } from "@/shared/components/ui/Label";
 import { Select } from "@/shared/components/ui/Select";
 
@@ -15,8 +16,8 @@ const SelectField = ({
   placeholder: string;
 }) => {
   return (
-    <div className="flex flex-col gap-2">
-      <Label className="text-sm text-muted-foreground">{label}</Label>
+    <Field.Root>
+      <Field.Label>{label}</Field.Label>
       <Select.Root value={value} onValueChange={onChange}>
         <Select.Trigger>
           <Select.Value placeholder={placeholder} />
@@ -29,7 +30,7 @@ const SelectField = ({
           ))}
         </Select.Content>
       </Select.Root>
-    </div>
+    </Field.Root>
   );
 };
 

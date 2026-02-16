@@ -1,5 +1,6 @@
-import { Label } from "@/shared/components/ui/Label";
+import { Field } from "@/shared/components/ui/Field";
 import { Slider } from "@/shared/components/ui/Slider";
+import { Text } from "@/shared/components/ui/Text";
 
 const SLIDER_RANGE = { min: -4, max: 4 };
 
@@ -17,13 +18,17 @@ const SliderField = ({
   max?: number;
 }) => {
   return (
-    <div className="flex flex-col gap-3">
-      <div className="flex items-center justify-between">
-        <Label className="text-sm text-muted-foreground">{label}</Label>
-        <span className="font-mono text-sm tabular-nums text-foreground">
+    <Field.Root className="flex flex-col gap-3">
+      <Field.Title className="flex items-center justify-between">
+        <Field.Label>{label}</Field.Label>
+        <Text
+          as={"span"}
+          variant={"small"}
+          className="font-mono tabular-nums text-foreground"
+        >
           {value > 0 ? `+${value}` : value}
-        </span>
-      </div>
+        </Text>
+      </Field.Title>
       <Slider
         min={min}
         max={max}
@@ -31,12 +36,12 @@ const SliderField = ({
         value={[value]}
         onValueChange={(v) => onChange(v[0])}
       />
-      <div className="flex justify-between text-xs text-muted-foreground">
+      <Field.Description className="flex justify-between">
         <span>{min}</span>
         <span>0</span>
         <span>{`+${max}`}</span>
-      </div>
-    </div>
+      </Field.Description>
+    </Field.Root>
   );
 };
 

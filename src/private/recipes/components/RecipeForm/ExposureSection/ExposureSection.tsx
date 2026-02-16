@@ -9,6 +9,7 @@ import { SliderField } from "../SliderField";
 import { Text } from "@/shared/components/ui/Text";
 import { Label } from "@/shared/components/ui/Label";
 import { InputGroup } from "@/shared/components/ui/InputGroup";
+import { Field } from "@/shared/components/ui/Field";
 
 const ExposureSection = () => {
   return (
@@ -38,26 +39,23 @@ const ExposureSection = () => {
 
             {/* Kelvin temperature input */}
             <div className="flex flex-col gap-2">
-              <Label className="text-sm text-muted-foreground">
-                Color Temperature
-              </Label>
-              <InputGroup.Root className="max-w-xs">
-                <InputGroup.Input
-                  placeholder="e.g. 3500"
-                  type="number"
-                  min={2500}
-                  max={10000}
-                  step={100}
-                />
+              <Field.Root>
+                <Field.Label>Color Temperature</Field.Label>
+                <InputGroup.Root className="max-w-xs">
+                  <InputGroup.Input
+                    placeholder="e.g. 3500"
+                    type="number"
+                    min={2500}
+                    max={10000}
+                    step={100}
+                  />
 
-                <InputGroup.Addon
-                  align="inline-end"
-                  className="font-mono text-xs"
-                >
-                  K
-                </InputGroup.Addon>
-              </InputGroup.Root>
-              <p className="text-xs text-muted-foreground">2500K - 10000K</p>
+                  <InputGroup.Addon align="inline-end" className="font-mono">
+                    K
+                  </InputGroup.Addon>
+                </InputGroup.Root>
+                <Field.Description>2500K - 10000K</Field.Description>
+              </Field.Root>
             </div>
           </div>
 
@@ -87,16 +85,14 @@ const ExposureSection = () => {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="flex flex-col gap-2">
-              <Label className="text-sm text-muted-foreground">ISO</Label>
+            <Field.Root>
+              <Field.Label>ISO</Field.Label>
               <Input placeholder="e.g. Auto up to 6400" />
-            </div>
-            <div className="flex flex-col gap-2">
-              <Label className="text-sm text-muted-foreground">
-                Exposure Compensation
-              </Label>
+            </Field.Root>
+            <Field.Root>
+              <Field.Label>Exposure Compensation</Field.Label>
               <Input placeholder="e.g. 0, +1/3, -2/3" />
-            </div>
+            </Field.Root>
           </div>
         </div>
       </Card.Content>
