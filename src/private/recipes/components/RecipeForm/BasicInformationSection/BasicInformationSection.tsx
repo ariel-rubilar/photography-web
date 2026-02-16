@@ -6,8 +6,12 @@ import { InputGroup } from "@/shared/components/ui/InputGroup";
 import { Separator } from "@/shared/components/ui/Separator";
 import { Text } from "@/shared/components/ui/Text";
 import { Camera, Link2 } from "lucide-react";
+import { Controller, useFormContext } from "react-hook-form";
+import { FormValues } from "../schema";
 
 const BasicInformationSection = () => {
+  const form = useFormContext<FormValues>();
+
   return (
     <Card.Root>
       <Card.Content className="flex flex-col gap-6 p-6">
@@ -24,28 +28,54 @@ const BasicInformationSection = () => {
         </div>
         <Separator />
         <div className="flex flex-col gap-4">
-          <Field.Root>
-            <Field.Label htmlFor="recipe-name">
-              Recipe Name <span className="text-primary">*</span>
-            </Field.Label>
-            <Input
-              id="recipe-name"
-              placeholder="e.g. Kodak Portra 400 Look"
-              required
-            />
-          </Field.Root>
-          <Field.Root>
-            <Field.Label htmlFor="recipe-link">Reference Link</Field.Label>
-            <InputGroup.Root>
-              <InputGroup.Addon align="inline-start">
-                <Link2 />
-              </InputGroup.Addon>
-              <InputGroup.Input
-                id="recipe-link"
-                placeholder="https://fujixweekly.com/..."
-              />
-            </InputGroup.Root>
-          </Field.Root>
+          <Controller
+            name="name"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field.Root data-invalid={fieldState.invalid}>
+                <Field.Label htmlFor="recipe-name">
+                  Recipe Name <span className="text-primary">*</span>
+                </Field.Label>
+                <Input
+                  id="recipe-name"
+                  placeholder="e.g. Kodak Portra 400 Look"
+                  {...field}
+                />
+                {fieldState.invalid && (
+                  <Field.Error errors={[fieldState.error]} />
+                )}
+              </Field.Root>
+            )}
+          />
+
+          <Controller
+            name="link"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field.Root data-invalid={fieldState.invalid}>
+                <Field.Label htmlFor="recipe-link">Reference Link</Field.Label>
+
+                <InputGroup.Root data-invalid={fieldState.invalid}>
+                  <InputGroup.Addon align="inline-start">
+                    <Link2 />
+                  </InputGroup.Addon>
+                  <InputGroup.Input
+                    id="recipe-link"
+                    placeholder="https://fujixweekly.com/..."
+                    {...field}
+                    onChange={(e) => {
+                      field.onChange(
+                        e.target.value === "" ? undefined : e.target.value,
+                      );
+                    }}
+                  />
+                </InputGroup.Root>
+                {fieldState.invalid && (
+                  <Field.Error errors={[fieldState.error]} />
+                )}
+              </Field.Root>
+            )}
+          />
         </div>
       </Card.Content>
     </Card.Root>
