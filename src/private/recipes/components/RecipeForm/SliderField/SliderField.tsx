@@ -12,7 +12,7 @@ const SliderField = ({
   max = SLIDER_RANGE.max,
 }: {
   label: string;
-  value: number;
+  value?: number;
   onChange: (v: number) => void;
   min?: number;
   max?: number;
@@ -26,14 +26,14 @@ const SliderField = ({
           variant={"small"}
           className="font-mono tabular-nums text-foreground"
         >
-          {value > 0 ? `+${value}` : value}
+          {value ? (value > 0 ? `+${value}` : value) : "-"}
         </Text>
       </Field.Title>
       <Slider
         min={min}
         max={max}
         step={1}
-        value={[value]}
+        value={value ? [value] : [0]}
         onValueChange={(v) => onChange(v[0])}
       />
       <Field.Description className="flex justify-between">

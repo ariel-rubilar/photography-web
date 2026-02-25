@@ -4,8 +4,12 @@ import { Separator } from "@/shared/components/ui/Separator";
 import { Text } from "@/shared/components/ui/Text";
 import { Aperture } from "lucide-react";
 import { SliderField } from "../SliderField";
+import { FormInputs } from "../schema";
+import { Controller, useFormContext } from "react-hook-form";
 
 const ToneCurveSection = () => {
+  const form = useFormContext<FormInputs>();
+
   return (
     <Card.Root>
       <Card.Content className="flex flex-col gap-6 p-6">
@@ -22,7 +26,21 @@ const ToneCurveSection = () => {
         </div>
         <Separator />
         <div className="grid gap-8 md:grid-cols-2">
-          <SliderField label="Highlight" value={0} onChange={(v) => {}} />
+          <Controller
+            name="settings.highlight"
+            control={form.control}
+            render={({ field: { value, onChange } }) => {
+              return (
+                <SliderField
+                  label="Highlight"
+                  value={value}
+                  onChange={(v) => {
+                    onChange(v);
+                  }}
+                />
+              );
+            }}
+          />
           <SliderField label="Shadow" value={0} onChange={(v) => {}} />
           <SliderField label="Color" value={0} onChange={(v) => {}} />
           <SliderField label="Noise Reduction" value={0} onChange={(v) => {}} />

@@ -7,26 +7,24 @@ import { ExposureSection } from "./ExposureSection";
 import { FilmAndColorSection } from "./FilmAndColorSection";
 import { Actions } from "./Actions";
 import * as z from "zod";
-import { Form, FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { formSchema, FormValues } from "./schema";
+import { formSchema, FormInputs } from "./schema";
 
 const RecipeForm = () => {
-  const form = useForm<FormValues>({
-    resolver: (value, context, another) => {
-      return zodResolver(formSchema)(value, context, another);
-    },
+  const form = useForm<FormInputs>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       link: "",
       settings: {
         filmSimulation: "",
         dynamicRange: "",
-        highlight: 0,
+        highlight: undefined,
         shadow: 0,
         color: 0,
         noiseReduction: 0,
-        sharpening: 0,
+        sharpening: undefined,
         clarity: 0,
         grainEffect: "",
         colorChromeEffect: "",
@@ -41,7 +39,7 @@ const RecipeForm = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
+  const onSubmit = (data: FormInputs) => {
     // Do something with the form values.
     console.log(data);
   };

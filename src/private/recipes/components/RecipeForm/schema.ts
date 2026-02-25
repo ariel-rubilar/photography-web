@@ -2,7 +2,12 @@ import * as z from "zod";
 
 export const formSchema = z.object({
   name: z.string().nonempty("Name is required"),
-  link: z.url("Invalid URL").optional(),
+  link: z
+    .union([
+      z.literal(""), // Allows an empty string
+      z.string().url(), // Or a valid URL string
+    ])
+    .optional(),
   settings: z.object({
     filmSimulation: z.string().optional(),
     dynamicRange: z.string().optional(),
@@ -24,4 +29,5 @@ export const formSchema = z.object({
   }),
 });
 
-export type FormValues = z.infer<typeof formSchema>;
+export type FormInputs = z.input<typeof formSchema>;
+export type FormOutputs = z.infer<typeof formSchema>;

@@ -7,10 +7,10 @@ import { Separator } from "@/shared/components/ui/Separator";
 import { Text } from "@/shared/components/ui/Text";
 import { Camera, Link2 } from "lucide-react";
 import { Controller, useFormContext } from "react-hook-form";
-import { FormValues } from "../schema";
+import { FormInputs } from "../schema";
 
 const BasicInformationSection = () => {
-  const form = useFormContext<FormValues>();
+  const form = useFormContext<FormInputs>();
 
   return (
     <Card.Root>
@@ -63,11 +63,6 @@ const BasicInformationSection = () => {
                     id="recipe-link"
                     placeholder="https://fujixweekly.com/..."
                     {...field}
-                    onChange={(e) => {
-                      field.onChange(
-                        e.target.value === "" ? undefined : e.target.value,
-                      );
-                    }}
                   />
                 </InputGroup.Root>
                 {fieldState.invalid && (
